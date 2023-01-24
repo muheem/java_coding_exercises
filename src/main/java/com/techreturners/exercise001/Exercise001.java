@@ -30,24 +30,17 @@ public class Exercise001 {
 
     public String reverse(String sentence) {
 
-        StringBuilder sb=new StringBuilder(sentence);
-        return sb.reverse().toString();
+        //StringBuilder sb=new StringBuilder(sentence);
+        return new StringBuilder(sentence).reverse().toString();
     }
 
     public int countLinuxUsers(List<User> users) {
 
-        int linuxUsers = 0;
-        int numberUsers = users.size();
+        int numberUsers = (int) users
+                .stream()
+                .filter( u->u.getType().equals("Linux"))
+                .count();
 
-        if (numberUsers == 0)
-            return linuxUsers;
-
-        String os;
-        for (int i = 0;  i < numberUsers; i++) {
-            os = users.get(i).getType();
-            if (os.equals("Linux"))
-                linuxUsers++;
-        }
-        return linuxUsers;
+        return numberUsers;
     }
 }

@@ -3,14 +3,11 @@ package com.techreturners.exercise002;
 public class Exercise002 {
 
     public boolean isFromManchester(Person person) {
-        return (new String("Manchester")).equalsIgnoreCase( person.getCity() );
+        return ("Manchester").equalsIgnoreCase( person.getCity() ) ;
     }
 
     public boolean canWatchFilm(Person person, int ageLimit) {
-        if (person.getAge() >= ageLimit)
-            return true;
-        else
-            return false;
+        return (person.getAge() >= ageLimit);
     }
 
     public boolean checkFirstName(Person person, String name) {
